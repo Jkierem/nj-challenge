@@ -3,21 +3,34 @@ import { parse } from 'https://deno.land/std/flags/mod.ts';
 
 const app = opine()
 
-app.get("/accounts", (req: Request, res: Response) => {
+app.get("/account-balance ", (req: Request, res: Response) => {
     res.setStatus(200).json({
-        data: "Hi there"
+        data: [
+            { name: "Account 1", balance: 10, currency: "dgc" },
+            { name: "Account 2", balance: 0.0001, currency: "btc" },
+            { name: "Account 3", balance: 420, currency: "end" }
+        ]
     })
 })
 
-app.get("/rates", (req: Request, res: Response ) => {
+app.get("/exchange-rates ", (req: Request, res: Response ) => {
     res.setStatus(200).json({
-        data: "Hi there"
+        data: [
+            { id: "dgc", name: "DogeCoin", abbreviation: "DGC", rate: 0.332187 },
+            { id: "btc", name: "Bitcoin", abbreviation: "BTC", rate: 32896.50 },
+            { id: "end", name: "Endava Points", abbreviation: "END", rate: 1 }
+        ]
     })
 })
 
-app.get("/subscribed", (req: Request, res: Response ) => {
+app.get("/destination-accounts ", (req: Request, res: Response ) => {
     res.setStatus(200).json({
-        data: "Hi there"
+        data: [
+            {
+                name: "Juan",
+                id: 1,
+            }
+        ]
     })
 })
 
